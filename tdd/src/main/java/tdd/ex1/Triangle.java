@@ -1,4 +1,4 @@
-package tdd;
+package tdd.ex1;
 
 import java.util.Arrays;
 
