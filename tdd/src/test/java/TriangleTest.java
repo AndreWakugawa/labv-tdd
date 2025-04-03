@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-import tdd.Triangle;
+import tdd.ex1.Triangle;
 
 import static org.junit.jupiter.api.Assertions.*;
 
