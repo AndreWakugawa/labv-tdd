@@ -1,10 +1,12 @@
 package tdd.ex2;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 public class Person {
     private int id;
     private String name;

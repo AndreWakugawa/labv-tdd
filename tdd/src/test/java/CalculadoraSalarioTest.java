@@ -4,9 +4,24 @@ import tdd.ex3.Cargo;
 import tdd.ex3.Funcionario;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CalculadoraSalarioTest {
     private final CalculadoraSalario calculadora = new CalculadoraSalario();
+
+    @Test
+    void getFuncionarioNome() {
+        Funcionario dev = new Funcionario();
+        dev.setNome("Dev");
+        assertEquals("Dev", dev.getNome());
+    }
+
+    @Test
+    void getFuncionarioEmail() {
+        Funcionario dev = new Funcionario();
+        dev.setEmail("dev@email.com");
+        assertEquals("dev@email.com", dev.getEmail());
+    }
 
     @Test
     void calcularSalarioLiquido_DesenvolvedorSalarioAlto_Desconto20() {
@@ -78,5 +93,18 @@ class CalculadoraSalarioTest {
         gerente.setSalarioBase(4000.0);
 
         assertEquals(3200.0, calculadora.calcularSalarioLiquido(gerente));
+    }
+
+    @Test
+    void calcularSalario_CargoNulo() {
+        Funcionario funcionario = new Funcionario();
+        funcionario.setSalarioBase(1000.0);
+        funcionario.setCargo(null);
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            calculadora.calcularSalarioLiquido(funcionario);
+        });
+
+        assertEquals("Cargo não pode ser nulo", exception.getMessage());
     }
 }

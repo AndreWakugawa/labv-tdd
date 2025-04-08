@@ -1,8 +1,10 @@
 package tdd.ex3;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class Funcionario {
     private String nome;
     private String email;
