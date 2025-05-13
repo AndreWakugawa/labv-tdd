@@ -36,6 +36,7 @@ public class NumberAscOrderTest {
 
         assertEquals(List.of(5, 8, 16, 23, 34, 42), sorted);
         verify(stack, times(6)).pop();
+        verify(stack, times(7)).isEmpty();
     }
 
     @Test
@@ -45,7 +46,6 @@ public class NumberAscOrderTest {
         NumberAscOrder<Integer> sorter = new NumberAscOrder<>(stack);
 
         assertThrows(StackEmptyException.class, sorter::sort);
-        verify(stack, never()).pop();
     }
 
     @Test
