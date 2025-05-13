@@ -20,10 +20,12 @@ public class NumberAscOrder<T extends Number & Comparable<T>> {
         }
 
         List<T> numbers = new ArrayList<>();
+        T number;
 
-        while (!stack.isEmpty()) {
-            numbers.add(stack.pop());
-        }
+        do {
+            number = stack.pop();
+            numbers.add(number);
+        } while (!stack.isEmpty());
 
         Collections.sort(numbers);
         return numbers;
